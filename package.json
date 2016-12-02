@@ -1,0 +1,26 @@
+{
+  "name": "cstoy-mean-seed",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Chris Stoy",
+  "license": "Copyright 2016 Chris Stoy",
+  "description": "Seed project for a MEAN app using Angular2 and Webpack",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-loader": "^1.6.1",
+    "ts-loader": "^1.2.2",
+    "tslint": "^4.0.2",
+    "tslint-loader": "^3.2.1",
+    "typescript": "^2.0.10",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-merge": "^1.0.2",
+    "yargs": "^6.5.0"
+  }
+}
