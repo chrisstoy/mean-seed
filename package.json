@@ -1,26 +1,38 @@
 {
-  "name": "cstoy-mean-seed",
+  "name": "mean-seed",
   "private": true,
   "version": "1.0.0",
   "author": "Chris Stoy",
   "license": "Copyright 2016 Chris Stoy",
   "description": "Seed project for a MEAN app using Angular2 and Webpack",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean && webpack --bail --progress --profile",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist build",
+    "start": "webpack --progress && node ./dist/server/express-server.js"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "lodash": "^4.17.2",
+    "morgan": "^1.7.0",
+    "source-map-support": "^0.4.6",
+    "webpack": "^1.13.3",
+    "webpack-merge": "^1.0.2",
+    "yargs": "^6.5.0"
   },
   "devDependencies": {
     "eslint": "^3.11.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-import-resolver-webpack": "^0.7.0",
     "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-lodash": "^2.2.2",
+    "eslint-plugin-promise": "^3.4.0",
+    "rimraf": "^2.5.4",
     "ts-loader": "^1.2.2",
     "tslint": "^4.0.2",
     "tslint-loader": "^3.2.1",
     "typescript": "^2.0.10",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2",
-    "webpack-merge": "^1.0.2",
-    "yargs": "^6.5.0"
+    "webpack-dev-server": "^1.16.2"
   }
 }

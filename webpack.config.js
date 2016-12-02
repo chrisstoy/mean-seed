@@ -2,6 +2,7 @@
 'use strict';
 var merge = require('webpack-merge');
 var commonConfig = require('./webpack/webpack.common');
+var serverConfig = require('./webpack/webpack.server');
 var targetConfig;
 
 var TARGET = process.env.npm_lifecycle_event;
@@ -17,5 +18,5 @@ switch (TARGET) {
     targetConfig = require('./webpack/webpack.dev');
 }
 
-
-module.exports = merge.smart(commonConfig, targetConfig);
+// module.exports = [merge.smart(commonConfig, targetConfig), serverConfig];
+module.exports = [serverConfig];
