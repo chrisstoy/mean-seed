@@ -1,11 +1,11 @@
 /* Root webpack config that runs correct config for target */
-'use strict';
-var merge = require('webpack-merge');
-var commonConfig = require('./webpack/webpack.common');
-var serverConfig = require('./webpack/webpack.server');
-var targetConfig;
 
-var TARGET = process.env.npm_lifecycle_event;
+let merge = require('webpack-merge');
+let commonConfig = require('./webpack/webpack.common');
+let serverConfig = require('./webpack/webpack.server');
+let targetConfig;
+
+const TARGET = process.env.npm_lifecycle_event;
 
 switch (TARGET) {
   case 'build':

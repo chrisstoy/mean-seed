@@ -9,10 +9,8 @@ const testPath = path.resolve('./test');
 const host = args.host || '127.0.0.1';
 const port = args.port || '8000';
 
-module.exports = function () {
-
-  var config = {
-
+function configFunction() {
+  const config = {
     entry: [
 
     ],
@@ -28,5 +26,8 @@ module.exports = function () {
 
   };
   return config;
-} ();
+}
+
+module.exports = configFunction();
+
 

@@ -10,3 +10,6 @@ The Express server exists in the 'server' folder and uses WebPack to build itsel
 
 ## Client
 Example Client that runs on the server and accesses Server resources.  In this example we use Angular2 and WebPack to build.
+
+## Notes
+http://stackoverflow.com/questions/37788142/webpack-for-back-end
