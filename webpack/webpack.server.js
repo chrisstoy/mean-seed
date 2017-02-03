@@ -1,79 +1,47 @@
-/* Config for building the ExpressJS server */
-/* see http://jlongster.com/Backend-Apps-with-Webpack--Part-I */
-
-const merge = require('webpack-merge');
-const args = require('yargs').argv;
-const webpack = require('webpack');
+/* Config for ExpressJS server app */
 const path = require('path');
+const args = require('yargs').argv;
 const fs = require('fs');
-const loaders = require('./loaders');
 
-const srcPath = path.resolve('./server');
+const host = args.host || '127.0.0.1';
+const port = args.port || '8000';
 
 // generate list of node_modules so we can tell WebPack to ignore them when bundling
 const nodeModules = {};
 fs.readdirSync('node_modules')
-  .filter((x) => {
-    return ['.bin'].indexOf(x) === -1;
-  })
+  .filter(x => ['.bin'].indexOf(x) === -1)
   .forEach((mod) => {
     nodeModules[mod] = 'commonjs ' + mod;
   });
 
-function makeWebpackConfig() {
+function creatConfig() {
   const config = {
     entry: {
       'express-server': './server/server',
     },
-    target: 'node',
+
     output: {
       path: path.resolve('./dist/server'),
-      publicPath: '/',
+      publicPath: `http://${host}:${port}/`,
       filename: '[name].js',
     },
-    externals: nodeModules,
-    devtool: 'sourcemap',
-    plugins: [
-      new webpack.BannerPlugin('require("source-map-support").install();',
-        { raw: true, entryOnly: false }),
-    ],
+
     module: {
-      preLoaders: [
+      rules: [
         {
-          test: /\.js$/,
-          loaders: ['eslint'],
-          include: [srcPath],
-          exclude: [/node_modules/],
-        }, {
           test: /\.ts$/,
-          loaders: ['tslint'],
-          include: [srcPath],
+          loaders: ['ng-annotate', 'ts'],
           exclude: [/node_modules/],
         },
       ],
-      loaders: [
-        {
-          test: /\.js$/,
-          loaders: [],
-          exclude: [/node_modules/, /\.spec\.js$/],
-        },
-        {
-          test: /\.ts$/,
-          loaders: ['ts'],
-          exclude: [/node_modules/],
-        },
-      ],
-      postLoaders: [],
     },
+
+    externals: nodeModules,
+
+    devtool: 'source-map',
+
   };
-
-  // add lint preloaders unless we passed --nolint
-  if (!args.nolint) {
-    config.module.preLoaders.push(merge.smart(loaders.eslint, { include: srcPath }));
-    config.module.preLoaders.push(merge.smart(loaders.tslint, { include: srcPath }));
-  }
-
   return config;
 }
 
-module.exports = makeWebpackConfig();
+module.exports = creatConfig();

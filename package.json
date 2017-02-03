@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "author": "Chris Stoy",
-  "license": "Copyright 2016 Chris Stoy",
+  "license": "Copyright 2017 Chris Stoy",
   "description": "Seed project for a MEAN app using Angular2 and Webpack",
   "scripts": {
     "build": "npm run clean && webpack --bail --progress --profile",
@@ -29,6 +29,7 @@
     "eslint-plugin-lodash": "^2.2.2",
     "eslint-plugin-promise": "^3.4.0",
     "rimraf": "^2.5.4",
+    "source-map-loader": "^0.1.6",
     "ts-loader": "^1.2.2",
     "tslint": "^4.0.2",
     "tslint-loader": "^3.2.1",

@@ -1,9 +1,11 @@
 /* Testing WebPack config */
 
-module.exports = function () {
-  var config = {
+function creatConfig() {
+  const config = {
 
   };
   return config;
-}();
+}
+
+module.exports = creatConfig();
 

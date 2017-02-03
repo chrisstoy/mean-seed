@@ -1,4 +1,5 @@
-/* Development WebPack config */
+/* Config for Angular2 web app */
+
 function creatConfig() {
   const config = {
 

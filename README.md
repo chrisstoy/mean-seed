@@ -13,3 +13,19 @@ Example Client that runs on the server and accesses Server resources.  In this e
 
 ## Notes
 http://stackoverflow.com/questions/37788142/webpack-for-back-end
+
+
+Taxo - Crowd-source taxonomy
+
+Upload images of animals and allow people to provide names for them.
+
+Subject
+	ScientificName - what is it really?
+	CommonNames - what are the accepted common names
+	UserNames - what people think it should be called
+	Pictures - pictures of the animal
+
+Contributor
+	UserName
+	Password
+	Picture
