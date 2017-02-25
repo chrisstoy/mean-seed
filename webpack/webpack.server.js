@@ -2,17 +2,20 @@
 const path = require('path');
 const args = require('yargs').argv;
 const fs = require('fs');
+const _ = require('lodash');
+
+const rules = require('./rules');
 
 const host = args.host || '127.0.0.1';
 const port = args.port || '8000';
 
 // generate list of node_modules so we can tell WebPack to ignore them when bundling
 const nodeModules = {};
-fs.readdirSync('node_modules')
-  .filter(x => ['.bin'].indexOf(x) === -1)
-  .forEach((mod) => {
-    nodeModules[mod] = 'commonjs ' + mod;
-  });
+// fs.readdirSync('node_modules')
+//   .filter(x => ['.bin'].indexOf(x) === -1)
+//   .forEach((mod) => {
+//     nodeModules[mod] = `commonjs ${mod}`;
+//   });
 
 function creatConfig() {
   const config = {
@@ -27,13 +30,10 @@ function creatConfig() {
     },
 
     module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          loaders: ['ng-annotate', 'ts'],
-          exclude: [/node_modules/],
-        },
-      ],
+      rules: _.flatten([
+        rules.js,
+        rules.ts,
+      ]),
     },
 
     externals: nodeModules,

@@ -1,24 +1,13 @@
-/* Define all of the WebPack loaders */
+/* Define all of the WebPack rules */
 
 // define common rules for all build types
-function createRules() {
-  return [
-    {
-      enforce: 'pre',
-      test: /\.js$/,
-      loader: 'source-map-loader',
-    },
-    {
-      enforce: 'pre',
-      test: /\.tsx?$/,
-      use: 'source-map-loader',
-    },
-    {
-      test: /\.ts$/,
-      loaders: ['ng-annotate', 'ts'],
-      exclude: [/node_modules/],
-    },
-  ];
-}
+exports.js = {
+  test: /\.js$/,
+  use: 'ts-loader',
+};
 
-module.exports = createRules();
+exports.ts = {
+  test: /\.ts$/,
+  use: 'ts-loader',
+};
+
