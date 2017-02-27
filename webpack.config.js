@@ -23,7 +23,7 @@ const serverConfig = require('./webpack/webpack.server');
 // const server = merge.smart(commonConfig, serverConfig);
 //const client = merge.smart(commonConfig, targetConfig, clientConfig);
 // global.console.log('Common config: ' + JSON.stringify(commonConfig));
-global.console.log(`Server config: ${JSON.stringify(serverConfig)} }`);
+//global.console.log(`Server config: ${JSON.stringify(serverConfig)} }`);
 
 // global.console.log('Combined config: ' + JSON.stringify(server));
 // export two configs, one for server, one for client.
