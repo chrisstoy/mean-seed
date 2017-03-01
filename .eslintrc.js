@@ -35,7 +35,7 @@ module.exports = {
     'operator-assignment': 0,
     'padded-blocks': 0,
     'quote-props': 0,
-    'quotes': 0,
+    //'quotes': 0,
     'spaced-comment': 0,
     'vars-on-top': 0,
     // activate rules from the lodash plugin

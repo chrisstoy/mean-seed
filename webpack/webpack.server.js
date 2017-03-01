@@ -1,13 +1,13 @@
 /* Config for ExpressJS server app */
 const path = require('path');
-const args = require('yargs').argv;
 const fs = require('fs');
+const args = require('yargs').argv;
 const _ = require('lodash');
 
 const rules = require('./rules');
 
 const host = args.host || '127.0.0.1';
-const port = args.port || '8000';
+const port = args.port || '3000';
 
 // generate list of node_modules so we can tell WebPack to include them as externals
 const nodeModules = {};
@@ -20,7 +20,7 @@ fs.readdirSync('node_modules')
 function creatConfig() {
   const config = {
     entry: {
-      'express-server': './server/boot',
+      server: './server/boot',
     },
 
     output: {
@@ -35,8 +35,9 @@ function creatConfig() {
 
     module: {
       rules: _.flatten([
-        rules.js,
         rules.ts,
+        rules.tslint,
+        rules.eslint,
       ]),
     },
 

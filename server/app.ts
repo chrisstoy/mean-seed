@@ -3,6 +3,8 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 
+import { HeroRouter } from './api/v1/heroes';
+
 // Create the Express web server app
 class App {
 
@@ -25,24 +27,19 @@ class App {
   }
 
   private initRoutes(): void {
-    let router = express.Router();
-    router.get('/test', (req, res, next) => {
-      res.json({
-        message: 'Hello from REST API',
-      });
-    });
-    this.express.use('/api', router);
+
+    this.express.use('/api/v1/heroes', new HeroRouter().router);
 
     // create default route that matches everything for now
-    this.express.all('/*', (req, res) => {
+    this.express.all('/ping', (req, res) => {
       res.send(`
         <!DOCTYPE html>
           <html>
             <head>
-              <title>MEAN App</title>
+              <title>MEAN Test</title>
             </head>
             <body>
-              <h1>Hello MEAN app</h1>
+              <h1>PING</h1>
             </body>
           </html>
       `);

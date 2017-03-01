@@ -9,7 +9,7 @@
     "build": "npm run clean && webpack --bail --progress --profile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist build",
-    "start": "webpack --progress && node ./dist/server/express-server.js"
+    "start": "webpack --progress && node ./dist/server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.16.1",
@@ -29,7 +29,7 @@
     "eslint": "^3.11.1",
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-import-resolver-webpack": "^0.7.0",
-    "eslint-loader": "^1.6.1",
+    "eslint-loader": "^1.6.3",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-lodash": "^2.2.2",
     "eslint-plugin-promise": "^3.4.0",
@@ -37,7 +37,8 @@
     "source-map-loader": "^0.1.6",
     "ts-loader": "^1.2.2",
     "tslint": "^4.0.2",
-    "tslint-loader": "^3.2.1",
+    "tslint-eslint-rules": "^3.4.0",
+    "tslint-loader": "^3.4.2",
     "typescript": "^2.0.10",
     "webpack-dev-server": "^2.0.0",
     "webpack-merge": "^2.0.0"
